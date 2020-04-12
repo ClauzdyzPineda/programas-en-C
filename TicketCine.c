@@ -7,6 +7,8 @@ typedef struct{
 	char tituloPeliculas[100];
 	char generoPelicula[100];
 	char fechaProgramada[10];
+	char horario[10]; 
+	char duracionPeli[10];
 	int nSalas, capacidadSalas;
 	struct Nodo *sgte;
 }Nodo;
@@ -288,6 +290,10 @@ void agregarPeliculas(void){
 	scanf(" %[^\n]",nodo->generoPelicula);
 	printf("Digite fecha programada: ");	
 	scanf(" %s",nodo->fechaProgramada);
+	printf("Digite hora programada: ");	
+	scanf(" %[^\n]", nodo->horario);
+	printf("Digite duracion de la pelicula: ");	
+	scanf(" %[^\n]",nodo->duracionPeli);
 	//Apuntar a NULL el siguiente elemento de la lista
 	nodo->sgte = NULL;
 	//Preguntar si la lista esta vacia
@@ -318,7 +324,10 @@ void mostrarPeliculas(void){
 			printf("\nTitulo de pelicula: %s",i->tituloPeliculas);
 			printf("\nGenero de pelicula: %s",i->generoPelicula);
 			printf("\nFecha de presentacion: %s",i->fechaProgramada);
+				printf("\nHorario de pelicula: %s",i->horario);
+			printf("\nDuracion de pelicula: %s",i->duracionPeli);
 			printf("\n-------------------------------------\n\n");
+		
 			
 			//Mover el valor de i al siguiente nodo
 			i = i->sgte;
@@ -361,12 +370,19 @@ void modificarPeliculas(){
 				scanf(" %[^\n]",i->generoPelicula);
 				printf("\nIngrese la fecha de presentacion a modificar: ");
 				scanf("%s",i->fechaProgramada);
+				printf("\nIngrese el horario a modificar: ");
+				scanf("%s",i->horario);
+				printf("\nIngrese la duracion de pelicula a modificar: ");
+				scanf("%s",i->duracionPeli);
 				
 				printf("\n\nSu informacion actualizada es");
 				printf("\nCodigo: %d",i->codigoPeli);
 				printf("\nNombre: %s",i->tituloPeliculas);
 				printf("\nDireccion: %s",i->generoPelicula);
-				printf("\nFecha de nacimiento: %s",i->fechaProgramada);
+				printf("\nFecha de presentacion: %s",i->fechaProgramada);
+				printf("\nHorario: %s",i->horario);
+				printf("\nDuracion: %s",i->duracionPeli);
+				printf("\n\n=====================================\n");
 				printf("\n");
 				encontrado = 1;//Indicar que el nodo fue encontrado
 				break;	
@@ -409,6 +425,9 @@ void buscarPeliculas(void){
 				printf("\nTitulo de peliculas: %s",i->tituloPeliculas);
 				printf("\nGenero de peliculas: %s",i->generoPelicula);
 				printf("\nFecha persentacion: %s",i->fechaProgramada);
+				printf("\nHorario: %s",i->horario);
+				printf("\nDuracion: %s",i->duracionPeli);
+				printf("\n\n=====================================\n");
 				encontrado = 1;//Indicar que el nodo fue encontrado
 				break;	
 			}
@@ -627,7 +646,6 @@ void eliminarSalas(){
 	
 	}
 }
-
 
 
 
